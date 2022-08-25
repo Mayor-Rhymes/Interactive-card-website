@@ -12,7 +12,7 @@ const CardFront = ({cardNumber, cardName, cardDateFirst, cardDateSecond}) => {
           <p className="mt-[3rem] text-2xl text-center">{cardNumber}</p>
          
          <section className="flex justify-between">
-           <p className="mr-[3rem] ml-[1rem] uppercase mt-[1rem] text-sm">{cardName}</p>
+           <p className="mr-[1rem] ml-[1rem] uppercase mt-[1rem] text-sm text-ellipsis">{cardName.length > 20 ? cardName.substring(0, 20).concat('...') : cardName}</p>
            <p className="ml-[3rem] mr-[2rem] uppercase mt-[1rem] text-sm">{cardDateFirst}/{cardDateSecond}</p>
 
          </section>

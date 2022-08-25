@@ -33,6 +33,7 @@ const Form = ({cardName, cardNumber, cardDateFirst, cardDateSecond, setCardName,
          className=" h-[50px] w-[100%] border px-[10px] rounded-md invalid:border-error valid:border-font-violet"
          onChange={(e) => setCardName(e.target.value) }
          required={isRequired}
+         
          />
 
       </div>
@@ -46,6 +47,7 @@ const Form = ({cardName, cardNumber, cardDateFirst, cardDateSecond, setCardName,
         onChange={
          (e) => setCardNumber(`${e.target.value.substring(0, 4)} ${e.target.value.substring(4, 8)} ${e.target.value.substring(8, 12)} ${e.target.value.substring(12, 16)}`)}
         required={isRequired}
+        maxLength="16"
         />
       </div>
 
@@ -62,6 +64,8 @@ const Form = ({cardName, cardNumber, cardDateFirst, cardDateSecond, setCardName,
          className="border h-[50px] w-[45%] px-[10px] rounded-md invalid:border-error valid:border-font-violet"
          onChange={(e) => setCardDateFirst(`${e.target.value.substring(0, 2)}`)}
          required={isRequired}
+         maxLength="2"
+         
          
          />
 
@@ -71,6 +75,7 @@ const Form = ({cardName, cardNumber, cardDateFirst, cardDateSecond, setCardName,
          className="border h-[50px] w-[45%] px-[10px] rounded-md invalid:border-error valid:border-font-violet"
          onChange={(e) => setCardDateSecond(`${e.target.value.substring(0, 2)}`)}
          required={isRequired}
+         maxLength="2"
          />
         </div>
 
@@ -81,7 +86,15 @@ const Form = ({cardName, cardNumber, cardDateFirst, cardDateSecond, setCardName,
             CVC
          </label>
 
-         <input type="text" placeholder="e.g. 123" className="border w-[100%] h-[50px] px-[10px] rounded-md invalid:border-error valid:border-font-violet" onChange={(e) => setCvv(`${e.target.value.substring(0, 3)}`)} required={isRequired}/>
+         <input 
+         type="text" 
+         placeholder="e.g. 123" 
+         className="border w-[100%] h-[50px] px-[10px] rounded-md invalid:border-error valid:border-font-violet"
+         onChange={(e) => setCvv(`${e.target.value.substring(0, 3)}`)} 
+         required={isRequired}
+         maxLength="3"
+          />
+          
         </div> 
 
 
