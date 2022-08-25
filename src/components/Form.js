@@ -18,6 +18,8 @@ const Form = ({cardName, cardNumber, cardDateFirst, cardDateSecond, setCardName,
        }
        
    }
+
+  
    return(
 
 
@@ -41,7 +43,8 @@ const Form = ({cardName, cardNumber, cardDateFirst, cardDateSecond, setCardName,
         id="card-number" 
         placeholder="e.g. 1234 5678 9123 0000" 
         className="h-[50px] w-[100%] border px-[10px] rounded-md invalid:border-error valid:border-font-violet"
-        onChange={(e) => setCardNumber(e.target.value)}
+        onChange={
+         (e) => setCardNumber(`${e.target.value.substring(0, 4)} ${e.target.value.substring(4, 8)} ${e.target.value.substring(8, 12)} ${e.target.value.substring(12, 16)}`)}
         required={isRequired}
         />
       </div>
@@ -57,7 +60,7 @@ const Form = ({cardName, cardNumber, cardDateFirst, cardDateSecond, setCardName,
          <input type="text" 
          placeholder="MM" 
          className="border h-[50px] w-[45%] px-[10px] rounded-md invalid:border-error valid:border-font-violet"
-         onChange={(e) => setCardDateFirst(e.target.value)}
+         onChange={(e) => setCardDateFirst(`${e.target.value.substring(0, 2)}`)}
          required={isRequired}
          
          />
@@ -66,7 +69,7 @@ const Form = ({cardName, cardNumber, cardDateFirst, cardDateSecond, setCardName,
          type="text" 
          placeholder="YY"
          className="border h-[50px] w-[45%] px-[10px] rounded-md invalid:border-error valid:border-font-violet"
-         onChange={(e) => setCardDateSecond(e.target.value)}
+         onChange={(e) => setCardDateSecond(`${e.target.value.substring(0, 2)}`)}
          required={isRequired}
          />
         </div>
@@ -78,7 +81,7 @@ const Form = ({cardName, cardNumber, cardDateFirst, cardDateSecond, setCardName,
             CVC
          </label>
 
-         <input type="text" placeholder="e.g. 123" className="border w-[100%] h-[50px] px-[10px] rounded-md invalid:border-error valid:border-font-violet" onChange={(e) => setCvv(e.target.value)} required={isRequired}/>
+         <input type="text" placeholder="e.g. 123" className="border w-[100%] h-[50px] px-[10px] rounded-md invalid:border-error valid:border-font-violet" onChange={(e) => setCvv(`${e.target.value.substring(0, 3)}`)} required={isRequired}/>
         </div> 
 
 
